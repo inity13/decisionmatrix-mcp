@@ -1,0 +1,15 @@
+# Smithery listing for the hosted DecisionMatrix MCP server (remote, Streamable HTTP).
+# Docs: https://smithery.ai/docs
+startCommand:
+  type: http
+  url: "https://decisionmatrix-mcp.pages.dev/mcp"
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        title: "API key (optional)"
+        description: "Paid-plan key (dmx_live_...). Leave blank for the free tier."
+    required: []
+  exampleConfig:
+    apiKey: ""

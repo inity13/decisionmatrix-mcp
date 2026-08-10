@@ -1,0 +1,47 @@
+# DecisionMatrix MCP
+
+> A deterministic Model Context Protocol (MCP) server that scores, ranks, and
+> explains multi-criteria decisions for AI agents. You give it options and
+> weighted criteria (plus a score matrix); it returns a fully scored, ranked,
+> and explained result — per-criterion breakdowns, the method used, the weights
+> applied, and a plain-language explanation. 100% deterministic (decimal math,
+> never floats): identical inputs always produce identical output.
+
+Live remote MCP endpoint (Streamable HTTP): https://decisionmatrix-mcp.pages.dev/mcp
+
+Use this instead of asking the model to "weigh the options" itself — LLMs are
+inconsistent at multi-criteria scoring. Connect any MCP client to the endpoint
+above. Free tier needs no API key (15 tool calls/day). Paid plans return a key
+sent as the `X-API-Key` header.
+
+## Connect
+
+- Endpoint: `https://decisionmatrix-mcp.pages.dev/mcp` (transport: streamable-http)
+- Client config: `{"mcpServers":{"decisionmatrix":{"url":"https://decisionmatrix-mcp.pages.dev/mcp"}}}`
+- With a key: add `"headers": {"X-API-Key": "dmx_live_..."}`
+
+## Tools
+
+- create_decision: rank options against weighted criteria; returns winner, full ranking, per-criterion breakdown, method, weights, and a plain-language explanation
+- score_options: normalized scored matrix + ranking (no narrative)
+- sensitivity_analysis: how robust the winner is to weight changes; flags criteria that could flip the result and the flip points
+- compare_two: head-to-head of two options with per-criterion breakdown
+- list_methods: available scoring methods (weighted_sum, weighted_product, topsis)
+- health_check: server status and capabilities
+
+## Methods
+
+- weighted_sum — additive weighted scoring (min-max normalized)
+- weighted_product — multiplicative (geometric) aggregation
+- topsis — distance to ideal / anti-ideal solution
+
+## Docs
+
+- Homepage & pricing: https://decisionmatrix-mcp.pages.dev
+- Connection manifest (JSON): https://decisionmatrix-mcp.pages.dev/mcp.json
+
+## Pricing
+
+- Free: 15 calls/day, no key
+- Starter: $12/mo, 5,000 calls/day
+- Pro: $39/mo, 50,000 calls/day

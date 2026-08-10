@@ -1,0 +1,23 @@
+name = "decisionmatrix-mcp"
+pages_build_output_dir = "site"
+compatibility_date = "2024-09-01"
+
+# Persistent store for API keys + daily usage counters (quota enforcement).
+[[kv_namespaces]]
+binding = "DECISIONMATRIX_KV"
+id = "67f88eb02b0c4d31a9d8be224633508b"
+
+[vars]
+DECISIONMATRIX_BASE_URL = "https://decisionmatrix-mcp.pages.dev"
+PRICE_STARTER = "price_1U2qdZI051HaG0hDfk9QLqQO"
+PRICE_PRO = "price_1U2qdaI051HaG0hDRWd6TIUY"
+FREE_DAILY = "15"
+STARTER_DAILY = "5000"
+PRO_DAILY = "50000"
+
+# Secrets set out-of-band (never in this file):
+#   wrangler pages secret put STRIPE_SECRET_KEY --project-name decisionmatrix-mcp
+#   wrangler pages secret put STRIPE_WEBHOOK_SECRET --project-name decisionmatrix-mcp
+#
+# Self-host / private mode: leave the KV binding + Stripe secrets unset and the
+# server fails open (free tier, quota disabled). The scoring engine needs nothing.
