@@ -179,6 +179,22 @@ curl -s http://127.0.0.1:8788/mcp \
 
 ---
 
+## Install via npm (stdio, no hosting)
+
+Run the server locally over stdio with a single command — nothing to deploy:
+
+```bash
+npx -y decisionmatrix-mcp
+```
+
+Claude Desktop / any stdio MCP client (`claude_desktop_config.json`):
+
+```json
+{ "mcpServers": { "decisionmatrix": { "command": "npx", "args": ["-y", "decisionmatrix-mcp"] } } }
+```
+
+This is the same deterministic engine as the hosted server, running on your machine.
+
 ## Client configuration
 
 ### Cursor — `~/.cursor/mcp.json`

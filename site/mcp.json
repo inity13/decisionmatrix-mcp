@@ -17,26 +17,66 @@
   },
   "client_config_examples": {
     "generic": {
-      "mcpServers": { "decisionmatrix": { "url": "https://decisionmatrix-mcp.pages.dev/mcp" } }
+      "mcpServers": {
+        "decisionmatrix": {
+          "url": "https://decisionmatrix-mcp.pages.dev/mcp"
+        }
+      }
     },
     "with_api_key": {
       "mcpServers": {
         "decisionmatrix": {
           "url": "https://decisionmatrix-mcp.pages.dev/mcp",
-          "headers": { "X-API-Key": "dmx_live_your_key" }
+          "headers": {
+            "X-API-Key": "dmx_live_your_key"
+          }
+        }
+      }
+    },
+    "stdio_npx": {
+      "mcpServers": {
+        "decisionmatrix": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "decisionmatrix-mcp"
+          ]
         }
       }
     }
   },
   "tools": [
-    "create_decision", "score_options", "sensitivity_analysis",
-    "compare_two", "list_methods", "health_check"
+    "create_decision",
+    "score_options",
+    "sensitivity_analysis",
+    "compare_two",
+    "list_methods",
+    "health_check"
   ],
-  "methods": ["weighted_sum", "weighted_product", "topsis"],
+  "methods": [
+    "weighted_sum",
+    "weighted_product",
+    "topsis"
+  ],
   "pricing": [
-    { "plan": "free", "price_usd_month": 0, "daily_calls": 15 },
-    { "plan": "starter", "price_usd_month": 12, "daily_calls": 5000 },
-    { "plan": "pro", "price_usd_month": 39, "daily_calls": 50000 }
+    {
+      "plan": "free",
+      "price_usd_month": 0,
+      "daily_calls": 15
+    },
+    {
+      "plan": "starter",
+      "price_usd_month": 12,
+      "daily_calls": 5000
+    },
+    {
+      "plan": "pro",
+      "price_usd_month": 39,
+      "daily_calls": 50000
+    }
   ],
-  "docs": "https://decisionmatrix-mcp.pages.dev/llms.txt"
+  "docs": "https://decisionmatrix-mcp.pages.dev/llms.txt",
+  "install": {
+    "npm": "npx -y decisionmatrix-mcp"
+  }
 }
