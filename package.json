@@ -1,6 +1,6 @@
 {
   "name": "decisionmatrix-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "DecisionMatrix MCP \u2014 deterministic multi-criteria decision analysis for AI agents: score, rank & explain options with weighted-sum, weighted-product, or TOPSIS. Runs over stdio (npx) or as a remote server.",
   "type": "module",
@@ -54,5 +54,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "mcpName": "io.github.inity13/decisionmatrix-mcp"
 }
